@@ -56,8 +56,7 @@ class ArticlesController < ApplicationController
     @articles = [{ id: 1, title: 'artile1', body: 'body1' }, { id: 2, title: 'artile2', body: 'body2' }]
     kombu_render_component('article-index-page', attributes: { 'title': @title, ':articles': @articles.to_json })
     # NOTE: The following html is rendered.
-    # <div id="vue-root"><artile-index-page title="Articles" :articles="[{"id":1,"title":"artile1","body":"body1"},{"id":2,"title":"artile2","body":"body2"}]"></div>
-</artile-index-page>
+    # <div id="vue-root"><artile-index-page title="Articles" :articles="[{"id":1,"title":"artile1","body":"body1"},{"id":2,"title":"artile2","body":"body2"}]"></artile-index-page></div>
   end
 end
 ```
