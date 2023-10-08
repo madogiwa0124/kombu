@@ -25,7 +25,7 @@ module Kombu
             return failure_component_message unless component_match?
             return failure_attributes_message unless attributes_match?
             return failure_entry_message unless entry_match?
-            return failure_mount_element_id_message unless mount_element_id_match?
+            failure_mount_element_id_message unless mount_element_id_match?
           end
 
           private
