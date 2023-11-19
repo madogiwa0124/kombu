@@ -52,6 +52,16 @@ class RenderableTest < ActionDispatch::IntegrationTest
     assert_select "my-component[title='sample title']"
   end
 
+  test "not render component with nil" do
+    KombuTestsController.define_method(:index) do
+      kombu_render_component(nil)
+    end
+    get "/kombu_tests"
+    assert_response :success
+    assert_select "div#vue-root"
+    assert_select("my-component", false)
+  end
+
   test "snapshot" do
     KombuTestsController.define_method(:index) do
       kombu_render_component(
