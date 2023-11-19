@@ -22,6 +22,7 @@ module Kombu
     end
 
     def kombu_component_tag
+      return "" if @kombu_component.nil?
       tag(@kombu_component, @kombu_attributes)
     end
 
