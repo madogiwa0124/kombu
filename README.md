@@ -52,11 +52,28 @@ class ArticlesController < ApplicationController
   include Kombu::Renderable
 
   def index
-    @title = 'Articles'
-    @articles = [{ id: 1, title: 'artile1', body: 'body1' }, { id: 2, title: 'artile2', body: 'body2' }]
-    kombu_render_component('article-index-page', attributes: { 'title': @title, ':articles': @articles.to_json })
+    title = 'Articles'
+    articles = [{ id: 1, title: 'artile1', body: 'body1' }, { id: 2, title: 'artile2', body: 'body2' }]
+    kombu_render_component('article-index-page', attributes: { 'title': title, ':articles': articles.to_json })
     # NOTE: The following html is rendered.
     # <div id="app"><artile-index-page title="Articles" :articles="[{"id":1,"title":"artile1","body":"body1"},{"id":2,"title":"artile2","body":"body2"}]"></artile-index-page></div>
+  end
+end
+```
+
+You can also use the input hidden as shown below to pass the initial data json without using component.(ex. React)
+
+```ruby
+class ArticlesController < ApplicationController
+  include Kombu::Renderable
+
+  def index
+    title = 'Articles'
+    articles = [{ id: 1, title: 'artile1', body: 'body1' }, { id: 2, title: 'artile2', body: 'body2' }]
+    initial_value = { title: title, articles: articles }
+    kombu_render_component('input', attributes: { 'type': 'hidden', 'id': 'initial-data', 'value': initial_value.to_json })
+    # NOTE: The following html is rendered.
+    # <div id="app"><input type="hidden" value='{"title":"Articles","articles":[{"id":1,"title":"artile1","body":"body1"},{"id":2,"title":"artile2","body":"body2"}]}' /></div>
   end
 end
 ```
@@ -81,9 +98,9 @@ class ArticlesController < ApplicationController
   include ComponentRenderable
 
   def index
-    @title = 'Articles'
-    @articles = [{ id: 1, title: 'artile1', body: 'body1' }, { id: 2, title: 'artile2', body: 'body2' }]
-    render_component('article-index-page', attributes: { 'title': @title, ':articles': @articles.to_json })
+    title = 'Articles'
+    articles = [{ id: 1, title: 'artile1', body: 'body1' }, { id: 2, title: 'artile2', body: 'body2' }]
+    render_component('article-index-page', attributes: { 'title': title, ':articles': articles.to_json })
   end
 end
 ```
