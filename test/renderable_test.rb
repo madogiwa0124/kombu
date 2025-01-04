@@ -33,7 +33,7 @@ class RenderableTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select "div#entry-js"
     assert_select "div#entry-css"
-    assert_select "div#vue-root my-component"
+    assert_select "div#app my-component"
   end
 
   test "render any component with html attributes" do
@@ -58,7 +58,7 @@ class RenderableTest < ActionDispatch::IntegrationTest
     end
     get "/kombu_tests"
     assert_response :success
-    assert_select "div#vue-root"
+    assert_select "div#app"
     assert_select("my-component", false)
   end
 
@@ -86,7 +86,7 @@ class RenderableTest < ActionDispatch::IntegrationTest
             <div id="entry-css">sample_css_entry_tag</div>
         </head>
         <body>
-          <div id="vue-root">
+          <div id="app">
             <my-component
               id="test-component"
               title="sample title"

@@ -5,7 +5,7 @@ require_relative "configration"
 
 module Kombu
   class Railtie < ::Rails::Railtie
-    MOUNT_ELEMENT_ID = "vue-root"
+    MOUNT_ELEMENT_ID = "app"
     ENTRY_VIEW_TEMPLATE = <<~ERB
       <div id="<%= @kombu_mount_element_id %>">
         <%= kombu_component_tag %>

@@ -17,8 +17,8 @@ Please configure the following settings according to your application.
 
 ```ruby
 Rails.application.configure do
-  # NOTE: (OPTIONAL) id of the element (div) to mount (default: `vue-root`)
-  # config.kombu.default_mount_element_id = 'vue-root'
+  # NOTE: (OPTIONAL) id of the element (div) to mount (default: `app`)
+  # config.kombu.default_mount_element_id = 'app'
 
   # NOTE: (REQUIIRED) Specify a proc that generates a tag that reads a javascript entry.
   # See `lib/kombu/renderable.rb` for instance variables provided by kombu that can be used within proc.
@@ -56,7 +56,7 @@ class ArticlesController < ApplicationController
     @articles = [{ id: 1, title: 'artile1', body: 'body1' }, { id: 2, title: 'artile2', body: 'body2' }]
     kombu_render_component('article-index-page', attributes: { 'title': @title, ':articles': @articles.to_json })
     # NOTE: The following html is rendered.
-    # <div id="vue-root"><artile-index-page title="Articles" :articles="[{"id":1,"title":"artile1","body":"body1"},{"id":2,"title":"artile2","body":"body2"}]"></artile-index-page></div>
+    # <div id="app"><artile-index-page title="Articles" :articles="[{"id":1,"title":"artile1","body":"body1"},{"id":2,"title":"artile2","body":"body2"}]"></artile-index-page></div>
   end
 end
 ```
