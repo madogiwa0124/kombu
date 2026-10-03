@@ -92,7 +92,7 @@ class RenderableTest < ActionDispatch::IntegrationTest
               title="sample title"
               :message="{&quot;title&quot;:&quot;hello&quot;,&quot;body&quot;:&quot;kombu&quot;}"
               :items="[{&quot;id&quot;:1,&quot;title&quot;:&quot;item1&quot;},{&quot;id&quot;:2,&quot;title&quot;:&quot;item2&quot;}]"
-            />
+            ></my-component>
           </div>
           <div id="entry-js">sample_js_entry_tag</div>
         </body>

@@ -23,7 +23,7 @@ module Kombu
 
     def kombu_component_tag
       return "" if @kombu_component.nil?
-      tag(@kombu_component, @kombu_attributes)
+      content_tag(@kombu_component, "", @kombu_attributes)
     end
 
     def kombu_javascript_entry_tag
